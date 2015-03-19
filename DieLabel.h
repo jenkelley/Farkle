@@ -12,7 +12,7 @@
 
 @optional
 
--(void)labelTapped:(UIGestureRecognizer *)tap;
+-(void)labelTapped:(UITapGestureRecognizer *)tap;
 
 @end
 

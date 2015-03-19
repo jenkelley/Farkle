@@ -16,28 +16,8 @@
     self.text = [NSString stringWithFormat:@"%i", randomRoll];
 }
 
--(IBAction)onOneTapped:(UITapGestureRecognizer *)sender {
-    
-}
-
--(IBAction)onTwoTapped:(UITapGestureRecognizer *)sender {
-
-}
-
--(IBAction)onThreeTapped:(UITapGestureRecognizer *)sender {
-
-}
-
--(IBAction)onFourTapped:(UITapGestureRecognizer *)sender {
-
-}
-
--(IBAction)onFiveTapped:(UITapGestureRecognizer *)sender {
-
-}
-
--(IBAction)onSixTapped:(UITapGestureRecognizer *)sender {
-
+-(IBAction)onDieLabelTapped:(UITapGestureRecognizer *)sender {
+    [self.delegate labelTapped:sender];
 }
 
 @end

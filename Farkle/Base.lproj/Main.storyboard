@@ -168,36 +168,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="sRJ-6S-UeH" userLabel="Tap Gesture Recognizer(1)">
                     <connections>
-                        <action selector="onOneTapped:" destination="Eb8-Tf-hkF" id="2yn-ow-PQ4"/>
+                        <action selector="onDieLabelTapped:" destination="Eb8-Tf-hkF" id="0b8-6F-cBv"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="IV6-oP-gsq" userLabel="Tap Gesture Recognizer(2)">
                     <connections>
-                        <action selector="onTwoTapped:" destination="mxP-cf-UDh" id="uhy-Sw-Yzm"/>
+                        <action selector="onDieLabelTapped:" destination="mxP-cf-UDh" id="Dnm-jh-pTG"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Xbc-XV-hZg" userLabel="Tap Gesture Recognizer(3)">
                     <connections>
-                        <action selector="onThreeTapped:" destination="lAQ-sA-jq0" id="7db-5j-pdQ"/>
+                        <action selector="onDieLabelTapped:" destination="lAQ-sA-jq0" id="K1h-nL-hlZ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="7zR-Qq-mEe" userLabel="Tap Gesture Recognizer(4)">
                     <connections>
-                        <action selector="onFourTapped:" destination="VAk-PA-vEi" id="CgF-D0-Xj2"/>
+                        <action selector="onDieLabelTapped:" destination="VAk-PA-vEi" id="ceQ-Oa-eNN"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fku-di-cuh" userLabel="Tap Gesture Recognizer(5)">
                     <connections>
-                        <action selector="onFiveTapped:" destination="otD-l7-se5" id="PeV-W0-0lh"/>
+                        <action selector="onDieLabelTapped:" destination="otD-l7-se5" id="vEF-S0-aFF"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="dsX-pT-VVR" userLabel="Tap Gesture Recognizer(6)">
                     <connections>
-                        <action selector="onSixTapped:" destination="ABg-qe-Gyo" id="neO-va-o44"/>
+                        <action selector="onDieLabelTapped:" destination="ABg-qe-Gyo" id="YR5-mc-3HW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="439.5" y="387"/>
+            <point key="canvasLocation" x="541.5" y="280"/>
         </scene>
     </scenes>
 </document>

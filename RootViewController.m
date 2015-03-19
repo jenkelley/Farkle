@@ -31,6 +31,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    for (DieLabel *dieLabel in self.dieLabels) {
+        dieLabel.delegate = self;
+    }
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
@@ -38,6 +42,10 @@
     for (DieLabel *label in self.dieLabels) {
         [label rollDice];
     }
+}
+
+-(void)labelTapped:(UITapGestureRecognizer *)tap {
+    NSLog(@"working die delegate");
 }
 
 @end
