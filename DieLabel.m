@@ -11,15 +11,6 @@
 
 @implementation DieLabel 
 
--(void)roll {
-    DieLabel *rollLabelOne;
-    DieLabel *rollLabelTwo;
-    DieLabel *rollLabelThree;
-    DieLabel *rollLabelFour;
-    DieLabel *rollLabelFive;
-    DieLabel *rollLabelSix;
-}
-
 -(IBAction)onOneTapped:(UITapGestureRecognizer *)sender {
     
 }
@@ -42,5 +33,17 @@
 
 -(IBAction)onSixTapped:(UITapGestureRecognizer *)sender {
 
+}
+
+-(void)roll {
+    //    DieLabel *rollLabelOne = [[DieLabel alloc] initWithFrame:CGRectMake(100, 100, 50, 50)]
+    //    DieLabel *rollLabelTwo;
+    //    DieLabel *rollLabelThree;
+    //    DieLabel *rollLabelFour;
+    //    DieLabel *rollLabelFive;
+    //    DieLabel *rollLabelSix;
+
+    DieLabel *anyDie;
+    anyDie.text = [NSString stringWithFormat:@"%i", arc4random_uniform(7)+1];
 }
 @end
