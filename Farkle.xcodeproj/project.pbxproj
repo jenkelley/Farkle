@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		14E840591ABB4EFA00620352 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E840581ABB4EFA00620352 /* main.m */; };
 		14E8405C1ABB4EFA00620352 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8405B1ABB4EFA00620352 /* AppDelegate.m */; };
-		14E8405F1ABB4EFA00620352 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8405E1ABB4EFA00620352 /* ViewController.m */; };
 		14E840621ABB4EFA00620352 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E840601ABB4EFA00620352 /* Main.storyboard */; };
 		14E840641ABB4EFA00620352 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E840631ABB4EFA00620352 /* Images.xcassets */; };
 		14E840671ABB4EFA00620352 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E840651ABB4EFA00620352 /* LaunchScreen.xib */; };
 		14E840731ABB4EFA00620352 /* FarkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E840721ABB4EFA00620352 /* FarkleTests.m */; };
+		D63221411ABB508500623560 /* DieLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D63221401ABB508500623560 /* DieLabel.m */; };
+		D63221441ABB50A900623560 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63221431ABB50A900623560 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,16 @@
 		14E840581ABB4EFA00620352 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14E8405A1ABB4EFA00620352 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14E8405B1ABB4EFA00620352 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		14E8405D1ABB4EFA00620352 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		14E8405E1ABB4EFA00620352 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		14E840611ABB4EFA00620352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14E840631ABB4EFA00620352 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14E840661ABB4EFA00620352 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14E8406C1ABB4EFA00620352 /* FarkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarkleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E840711ABB4EFA00620352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E840721ABB4EFA00620352 /* FarkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarkleTests.m; sourceTree = "<group>"; };
+		D632213F1ABB508500623560 /* DieLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DieLabel.h; path = ../DieLabel.h; sourceTree = "<group>"; };
+		D63221401ABB508500623560 /* DieLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DieLabel.m; path = ../DieLabel.m; sourceTree = "<group>"; };
+		D63221421ABB50A900623560 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
+		D63221431ABB50A900623560 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +86,11 @@
 			children = (
 				14E8405A1ABB4EFA00620352 /* AppDelegate.h */,
 				14E8405B1ABB4EFA00620352 /* AppDelegate.m */,
-				14E8405D1ABB4EFA00620352 /* ViewController.h */,
-				14E8405E1ABB4EFA00620352 /* ViewController.m */,
 				14E840601ABB4EFA00620352 /* Main.storyboard */,
+				D63221421ABB50A900623560 /* RootViewController.h */,
+				D63221431ABB50A900623560 /* RootViewController.m */,
+				D632213F1ABB508500623560 /* DieLabel.h */,
+				D63221401ABB508500623560 /* DieLabel.m */,
 				14E840631ABB4EFA00620352 /* Images.xcassets */,
 				14E840651ABB4EFA00620352 /* LaunchScreen.xib */,
 				14E840561ABB4EFA00620352 /* Supporting Files */,
@@ -219,9 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E8405F1ABB4EFA00620352 /* ViewController.m in Sources */,
 				14E8405C1ABB4EFA00620352 /* AppDelegate.m in Sources */,
 				14E840591ABB4EFA00620352 /* main.m in Sources */,
+				D63221441ABB50A900623560 /* RootViewController.m in Sources */,
+				D63221411ABB508500623560 /* DieLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +418,7 @@
 				14E840781ABB4EFA00620352 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14E840791ABB4EFA00620352 /* Build configuration list for PBXNativeTarget "FarkleTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				14E8407B1ABB4EFA00620352 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
