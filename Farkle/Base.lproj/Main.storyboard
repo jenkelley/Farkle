@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -97,6 +97,18 @@
                                     <rect key="frame" x="73" y="224" width="55" height="55"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-D4-TVk">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="ROLL">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="281" y="47" width="39" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onRollButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SNG-2j-sq4"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABg-qe-Gyo" customClass="DieLabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,6 +133,7 @@
                                 <exclude reference="otD-l7-se5"/>
                                 <exclude reference="VAk-PA-vEi"/>
                                 <exclude reference="hst-m5-4ab"/>
+                                <exclude reference="ONH-D4-TVk"/>
                                 <exclude reference="ABg-qe-Gyo"/>
                             </mask>
                         </variation>
@@ -132,6 +145,7 @@
                                 <include reference="otD-l7-se5"/>
                                 <include reference="VAk-PA-vEi"/>
                                 <include reference="hst-m5-4ab"/>
+                                <include reference="ONH-D4-TVk"/>
                                 <include reference="ABg-qe-Gyo"/>
                             </mask>
                         </variation>
@@ -143,6 +157,12 @@
                         <outlet property="dieLabelSix" destination="ABg-qe-Gyo" id="b1X-Yw-lBN"/>
                         <outlet property="dieLabelThree" destination="lAQ-sA-jq0" id="1yQ-1g-gMn"/>
                         <outlet property="dieLabelTwo" destination="mxP-cf-UDh" id="eJZ-GA-zoe"/>
+                        <outletCollection property="dieLabels" destination="Eb8-Tf-hkF" id="Kjf-uX-8Hs"/>
+                        <outletCollection property="dieLabels" destination="mxP-cf-UDh" id="MbE-1J-aU3"/>
+                        <outletCollection property="dieLabels" destination="lAQ-sA-jq0" id="pXw-VD-62D"/>
+                        <outletCollection property="dieLabels" destination="hst-m5-4ab" id="mKh-H3-6bm"/>
+                        <outletCollection property="dieLabels" destination="otD-l7-se5" id="vEM-vV-ly3"/>
+                        <outletCollection property="dieLabels" destination="ABg-qe-Gyo" id="cYD-h5-sUN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

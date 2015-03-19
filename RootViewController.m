@@ -16,22 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (IBAction)onRollButtonPressed:(UIButton *)rollButton {
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    for (DieLabel *dieLabel in self.dieLabels) {
+        dieLabel.text = [NSString stringWithFormat:@"%i", arc4random_uniform(6)+1];
+        NSLog(@"%@", dieLabel.text);
+    }
+    NSLog(@"%lu", (unsigned long)self.dieLabels.count);
 }
-*/
 
 @end

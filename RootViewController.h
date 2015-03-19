@@ -11,6 +11,8 @@
 
 @interface RootViewController : UIViewController
 
+@property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
+
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelOne;
 
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelTwo;
