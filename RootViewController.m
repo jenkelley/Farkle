@@ -7,8 +7,23 @@
 //
 
 #import "RootViewController.h"
+#import "DieLabel.h"
 
-@interface RootViewController ()
+@interface RootViewController () <DieLabelDelegate>
+
+@property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelOne;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelTwo;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelThree;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelFour;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
+
+@property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 
 @end
 
@@ -20,11 +35,9 @@
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
 
-    for (DieLabel *dieLabel in self.dieLabels) {
-        dieLabel.text = [NSString stringWithFormat:@"%i", arc4random_uniform(6)+1];
-        NSLog(@"%@", dieLabel.text);
+    for (DieLabel *label in self.dieLabels) {
+        [label rollDice];
     }
-    NSLog(@"%lu", (unsigned long)self.dieLabels.count);
 }
 
 @end

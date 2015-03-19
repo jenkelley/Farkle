@@ -12,12 +12,14 @@
 
 @optional
 
--(void)roll;
+-(void)labelTapped:(UIGestureRecognizer *)tap;
 
 @end
 
 @interface DieLabel : UILabel
 
 @property (nonatomic, assign) id <DieLabelDelegate> delegate;
+
+-(void)rollDice;
 
 @end

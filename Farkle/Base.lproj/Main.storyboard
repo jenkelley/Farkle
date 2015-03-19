@@ -157,12 +157,12 @@
                         <outlet property="dieLabelSix" destination="ABg-qe-Gyo" id="b1X-Yw-lBN"/>
                         <outlet property="dieLabelThree" destination="lAQ-sA-jq0" id="1yQ-1g-gMn"/>
                         <outlet property="dieLabelTwo" destination="mxP-cf-UDh" id="eJZ-GA-zoe"/>
-                        <outletCollection property="dieLabels" destination="Eb8-Tf-hkF" id="Kjf-uX-8Hs"/>
-                        <outletCollection property="dieLabels" destination="mxP-cf-UDh" id="MbE-1J-aU3"/>
-                        <outletCollection property="dieLabels" destination="lAQ-sA-jq0" id="pXw-VD-62D"/>
-                        <outletCollection property="dieLabels" destination="hst-m5-4ab" id="mKh-H3-6bm"/>
-                        <outletCollection property="dieLabels" destination="otD-l7-se5" id="vEM-vV-ly3"/>
-                        <outletCollection property="dieLabels" destination="ABg-qe-Gyo" id="cYD-h5-sUN"/>
+                        <outletCollection property="dieLabels" destination="Eb8-Tf-hkF" collectionClass="NSMutableArray" id="Kjf-uX-8Hs"/>
+                        <outletCollection property="dieLabels" destination="mxP-cf-UDh" collectionClass="NSMutableArray" id="MbE-1J-aU3"/>
+                        <outletCollection property="dieLabels" destination="lAQ-sA-jq0" collectionClass="NSMutableArray" id="pXw-VD-62D"/>
+                        <outletCollection property="dieLabels" destination="hst-m5-4ab" collectionClass="NSMutableArray" id="mKh-H3-6bm"/>
+                        <outletCollection property="dieLabels" destination="otD-l7-se5" collectionClass="NSMutableArray" id="vEM-vV-ly3"/>
+                        <outletCollection property="dieLabels" destination="ABg-qe-Gyo" collectionClass="NSMutableArray" id="cYD-h5-sUN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

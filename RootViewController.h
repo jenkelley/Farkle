@@ -7,21 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DieLabel.h"
 
 @interface RootViewController : UIViewController
 
-@property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelOne;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelTwo;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelThree;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelFour;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
-
-@property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 @end
