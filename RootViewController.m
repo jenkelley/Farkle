@@ -13,6 +13,8 @@
 
 @property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
 
+@property DieLabel *tappedDieLabel;
+
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelOne;
 
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelTwo;
@@ -45,7 +47,18 @@
 }
 
 -(void)labelTapped:(UITapGestureRecognizer *)tap {
-    NSLog(@"working die delegate");
+    [self findLabelUsingPoint:[tap locationInView:self.view]];
+    self.tappedDieLabel.backgroundColor = [UIColor orangeColor];
+    [self.dieLabels removeObject:self.tappedDieLabel];
+
+}
+
+-(void)findLabelUsingPoint:(CGPoint)tap {
+    for (DieLabel *dieLabelTapped in self.dieLabels){
+        if (CGRectContainsPoint(dieLabelTapped.frame, tap)) {
+            self.tappedDieLabel = dieLabelTapped;
+        }
+    }
 }
 
 @end

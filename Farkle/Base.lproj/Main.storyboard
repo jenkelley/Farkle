@@ -72,20 +72,6 @@
                                     <outletCollection property="gestureRecognizers" destination="fku-di-cuh" appends="YES" id="fvy-O4-oHe"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAk-PA-vEi" customClass="DieLabel">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="73" y="224" width="55" height="55"/>
-                                </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="7zR-Qq-mEe" appends="YES" id="MQw-WW-qXe"/>
-                                </connections>
-                            </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hst-m5-4ab" customClass="DieLabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -96,6 +82,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="73" y="224" width="55" height="55"/>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7zR-Qq-mEe" appends="YES" id="pq2-Dv-1cf"/>
+                                </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-D4-TVk">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -131,7 +120,6 @@
                                 <exclude reference="mxP-cf-UDh"/>
                                 <exclude reference="lAQ-sA-jq0"/>
                                 <exclude reference="otD-l7-se5"/>
-                                <exclude reference="VAk-PA-vEi"/>
                                 <exclude reference="hst-m5-4ab"/>
                                 <exclude reference="ONH-D4-TVk"/>
                                 <exclude reference="ABg-qe-Gyo"/>
@@ -143,7 +131,6 @@
                                 <include reference="mxP-cf-UDh"/>
                                 <include reference="lAQ-sA-jq0"/>
                                 <include reference="otD-l7-se5"/>
-                                <include reference="VAk-PA-vEi"/>
                                 <include reference="hst-m5-4ab"/>
                                 <include reference="ONH-D4-TVk"/>
                                 <include reference="ABg-qe-Gyo"/>
@@ -183,7 +170,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="7zR-Qq-mEe" userLabel="Tap Gesture Recognizer(4)">
                     <connections>
-                        <action selector="onDieLabelTapped:" destination="VAk-PA-vEi" id="ceQ-Oa-eNN"/>
+                        <action selector="onDieLabelTapped:" destination="hst-m5-4ab" id="xNe-NO-gPb"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="fku-di-cuh" userLabel="Tap Gesture Recognizer(5)">
