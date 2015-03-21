@@ -28,6 +28,13 @@
 @property UIDynamicItemBehavior *dynamicItemBehavior;
 @property UIGravityBehavior *gravityBehavior;
 @property UICollisionBehavior *collisionBehavior;
+@property (weak, nonatomic) IBOutlet UILabel *userTwoScore;
+
+@property int playerScoreInt;
+@property int playerTwoScoreInt;
+@property int turnScore;
+
+@property BOOL whichPlayer;
 
 @end
 
@@ -48,6 +55,10 @@
     self.gravityBehavior = [[UIGravityBehavior alloc] initWithItems:self.dieLabels];
     self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
 
+    self.turnScore = 0;
+    self.playerScoreInt = 0;
+    self.whichPlayer = YES;
+
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
@@ -55,6 +66,15 @@
         [label rollDice];
         [self.selectedDice removeAllObjects];
     }
+}
+
+- (IBAction)onEndTurnButtonPressed:(id)sender {
+    for (int i = 0; i <= self.selectedDice.count; i++) {
+        [self.dieLabels addObject:self.selectedDice[i]];
+    }
+    [self.selectedDice removeAllObjects];
+    self.turnScore = 0;
+    self.whichPlayer = !self.whichPlayer;
 }
 
 -(void)labelTapped:(UITapGestureRecognizer *)tap {
@@ -85,6 +105,7 @@
     int sixes = 0;
   //  int turnScore = 0;
 
+
     for (DieLabel *die in self.selectedDice) {
         switch ([die.text intValue]) {
             case 1:
@@ -110,11 +131,105 @@
         }
     }
 
-//    if (ones == twos == threes == fours == fives == sixes == 1) {
-//        turnScore += 1500;
-//    } else if () {
-//
-//    }
+//            if (ones == twos == threes == fours == fives == sixes == 1) {
+//                turnScore += 1500;
+//            }
+
+            if (!(sixes == 0)) {
+                if (sixes == 6) {
+                    self.turnScore += 3000;
+                } else if (sixes == 5) {
+                    self.turnScore += 2000;
+                } else if (sixes == 4) {
+                    self.turnScore += 1000;
+                } else if (sixes == 3){
+                    self.turnScore += 600;
+                }
+            }
+        
+            if (!(fives == 0)) {
+                if (fives == 6) {
+                    self.turnScore += 3000;
+                } else if (fives == 5) {
+                    self.turnScore += 2000;
+                } else if (fives == 4) {
+                    self.turnScore += 1000;
+                } else if (fives == 3){
+                    self.turnScore += 500;
+                } else if (fives == 2) {
+                    self.turnScore += 100;
+                } else if (fives == 1) {
+                    self.turnScore += 50;
+                }
+            }
+        
+            if (!(fours == 0)) {
+                if (fours == 6) {
+                    self.turnScore += 3000;
+                } else if (fours == 5) {
+                    self.turnScore += 2000;
+                } else if (fours == 4) {
+                    self.turnScore += 1000;
+                } else if (fours == 3){
+                    self.turnScore += 400;
+                }
+            }
+        
+            if (!(threes == 0)) {
+                if (threes == 6) {
+                    self.turnScore += 3000;
+                } else if (threes == 5) {
+                    self.turnScore += 2000;
+                } else if (threes == 4) {
+                    self.turnScore += 1000;
+                } else if (threes == 3){
+                    self.turnScore += 300;
+                }
+            }
+        
+            if (!(twos == 0)) {
+                if (twos == 6) {
+                    self.turnScore += 3000;
+                } else if (twos == 5) {
+                    self.turnScore += 2000;
+                } else if (twos == 4) {
+                    self.turnScore += 1000;
+                } else if (twos == 3){
+                    self.turnScore += 200;
+                }
+            }
+        
+            if (!(ones == 0)) {
+                if (ones == 6) {
+                    self.turnScore += 3000;
+                } else if (ones == 5) {
+                    self.turnScore += 2000;
+                } else if (ones == 4) {
+                    self.turnScore += 1000;
+                } else if (ones == 3){
+                    self.turnScore += 300;
+                } else if (ones == 2) {
+                    self.turnScore += 200;
+                } else if (ones == 1) {
+                    self.turnScore += 100;
+                }
+            }
+        
+
+    NSLog(@"Ones equal %i", ones);
+    NSLog(@"Twos equal %i", twos);
+    NSLog(@"Threes equal %i", threes);
+    NSLog(@"Fours equal %i", fours);
+    NSLog(@"Fives equal %i", fives);
+    NSLog(@"Sixes equal %i", sixes);
+
+    if (self.whichPlayer == YES) {
+        self.playerScoreInt = self.playerScoreInt + self.turnScore;
+        self.userScore.text = [NSString stringWithFormat:@"Player 1 Score: %i", self.playerScoreInt];
+    } else if (self.whichPlayer == NO){
+        self.playerTwoScoreInt = self.playerTwoScoreInt + self.turnScore;
+        self.userTwoScore.text = [NSString stringWithFormat:@"PLayer 2 Score: %i", self.playerTwoScoreInt];
+    }
 }
 
 @end
