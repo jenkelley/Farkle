@@ -24,7 +24,13 @@
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 @property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property (weak, nonatomic) IBOutlet UILabel *userTwoScore;
+
 @property int playerScoreInt;
+@property int playerTwoScoreInt;
+@property int turnScore;
+
+@property BOOL whichPlayer;
 
 @end
 
@@ -39,7 +45,9 @@
     for (DieLabel *dieLabel in self.dieLabels) {
         dieLabel.delegate = self;
     }
+    self.turnScore = 0;
     self.playerScoreInt = 0;
+    self.whichPlayer = YES;
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
@@ -50,7 +58,12 @@
 }
 
 - (IBAction)onEndTurnButtonPressed:(id)sender {
-    
+    for (int i = 0; i <= self.selectedDice.count; i++) {
+        [self.dieLabels addObject:self.selectedDice[i]];
+    }
+    [self.selectedDice removeAllObjects];
+    self.turnScore = 0;
+    self.whichPlayer = !self.whichPlayer;
 }
 
 -(void)labelTapped:(UITapGestureRecognizer *)tap {
@@ -79,7 +92,6 @@
     int fours = 0;
     int fives = 0;
     int sixes = 0;
-    int turnScore = 0;
 
     for (DieLabel *die in self.selectedDice) {
         switch ([die.text intValue]) {
@@ -112,81 +124,81 @@
 
             if (!(sixes == 0)) {
                 if (sixes == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (sixes == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (sixes == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (sixes == 3){
-                    turnScore += 600;
+                    self.turnScore += 600;
                 }
             }
         
             if (!(fives == 0)) {
                 if (fives == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (fives == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (fives == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (fives == 3){
-                    turnScore += 500;
+                    self.turnScore += 500;
                 } else if (fives == 2) {
-                    turnScore += 100;
+                    self.turnScore += 100;
                 } else if (fives == 1) {
-                    turnScore += 50;
+                    self.turnScore += 50;
                 }
             }
         
             if (!(fours == 0)) {
                 if (fours == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (fours == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (fours == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (fours == 3){
-                    turnScore += 400;
+                    self.turnScore += 400;
                 }
             }
         
             if (!(threes == 0)) {
                 if (threes == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (threes == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (threes == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (threes == 3){
-                    turnScore += 300;
+                    self.turnScore += 300;
                 }
             }
         
             if (!(twos == 0)) {
                 if (twos == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (twos == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (twos == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (twos == 3){
-                    turnScore += 200;
+                    self.turnScore += 200;
                 }
             }
         
             if (!(ones == 0)) {
                 if (ones == 6) {
-                    turnScore += 3000;
+                    self.turnScore += 3000;
                 } else if (ones == 5) {
-                    turnScore += 2000;
+                    self.turnScore += 2000;
                 } else if (ones == 4) {
-                    turnScore += 1000;
+                    self.turnScore += 1000;
                 } else if (ones == 3){
-                    turnScore += 300;
+                    self.turnScore += 300;
                 } else if (ones == 2) {
-                    turnScore += 200;
+                    self.turnScore += 200;
                 } else if (ones == 1) {
-                    turnScore += 100;
+                    self.turnScore += 100;
                 }
             }
         
@@ -198,8 +210,13 @@
     NSLog(@"Fives equal %i", fives);
     NSLog(@"Sixes equal %i", sixes);
 
-    self.playerScoreInt = self.playerScoreInt + turnScore;
-    self.userScore.text = [NSString stringWithFormat:@"Player 1 Score: %i", self.playerScoreInt];
+    if (self.whichPlayer == YES) {
+        self.playerScoreInt = self.playerScoreInt + self.turnScore;
+        self.userScore.text = [NSString stringWithFormat:@"Player 1 Score: %i", self.playerScoreInt];
+    } else if (self.whichPlayer == NO){
+        self.playerTwoScoreInt = self.playerTwoScoreInt + self.turnScore;
+        self.userTwoScore.text = [NSString stringWithFormat:@"PLayer 2 Score: %i", self.playerTwoScoreInt];
+    }
 }
 
 @end
