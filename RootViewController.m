@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "DieLabel.h"
 
-@interface RootViewController () <DieLabelDelegate>
+@interface RootViewController () <DieLabelDelegate, UIDynamicItem>
 
 @property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
 @property NSMutableArray *dice;
@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 @property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property UIDynamicAnimator *dynamicAnimator;
+@property UIDynamicItemBehavior *dynamicItemBehavior;
+@property UIGravityBehavior *gravityBehavior;
+@property UICollisionBehavior *collisionBehavior;
 
 @end
 
@@ -38,6 +42,12 @@
     for (DieLabel *dieLabel in self.dieLabels) {
         dieLabel.delegate = self;
     }
+
+    self.dynamicAnimator = [[UIDynamicAnimator alloc] init];
+    self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
+    self.gravityBehavior = [[UIGravityBehavior alloc] initWithItems:self.dieLabels];
+    self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
+
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
@@ -73,7 +83,7 @@
     int fours = 0;
     int fives = 0;
     int sixes = 0;
-    int turnScore = 0;
+  //  int turnScore = 0;
 
     for (DieLabel *die in self.selectedDice) {
         switch ([die.text intValue]) {

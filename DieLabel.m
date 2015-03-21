@@ -14,6 +14,10 @@
 -(void)rollDice {
     int randomRoll = arc4random_uniform(6)+1;
     self.text = [NSString stringWithFormat:@"%i", randomRoll];
+
+
+
+
 }
 
 -(IBAction)onDieLabelTapped:(UITapGestureRecognizer *)sender {
