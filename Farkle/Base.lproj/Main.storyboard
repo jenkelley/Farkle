@@ -112,15 +112,27 @@
                                     <outletCollection property="gestureRecognizers" destination="dsX-pT-VVR" appends="YES" id="kPF-Tw-i9L"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLH-Hg-DXX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLH-Hg-DXX">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="47" width="85" height="30"/>
+                                    <rect key="frame" x="42" y="47" width="157" height="30"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-Pp-Z1m">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="End Turn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="258" y="92" width="85" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onEndTurnButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3yD-ML-Sw0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -133,6 +145,7 @@
                                 <exclude reference="ONH-D4-TVk"/>
                                 <exclude reference="ABg-qe-Gyo"/>
                                 <exclude reference="wLH-Hg-DXX"/>
+                                <exclude reference="GmC-Pp-Z1m"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -145,6 +158,7 @@
                                 <include reference="ONH-D4-TVk"/>
                                 <include reference="ABg-qe-Gyo"/>
                                 <include reference="wLH-Hg-DXX"/>
+                                <include reference="GmC-Pp-Z1m"/>
                             </mask>
                         </variation>
                     </view>
