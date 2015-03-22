@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "DieLabel.h"
 
-@interface RootViewController () <DieLabelDelegate, UIDynamicItem>
+@interface RootViewController () <DieLabelDelegate, UIDynamicItem, UICollisionBehaviorDelegate>
 
 @property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
 @property NSMutableArray *dice;
@@ -24,17 +24,19 @@
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 @property (weak, nonatomic) IBOutlet UILabel *userScore;
+
+//below are the properties I added to make it animate, i also added a delegate
 @property UIDynamicAnimator *dynamicAnimator;
 @property UIDynamicItemBehavior *dynamicItemBehavior;
 @property UIGravityBehavior *gravityBehavior;
 @property UICollisionBehavior *collisionBehavior;
 @property (weak, nonatomic) IBOutlet UILabel *userTwoScore;
-//@property UIBezierPath *rectangleBounds;
+
 @property int playerScoreInt;
 @property int playerTwoScoreInt;
 @property int turnScore;
 @property BOOL whichPlayer;
-//@property (strong, nonatomic) IBOutlet UIView *rollingRectangle;
+@property (strong, nonatomic) IBOutlet UIView *rollingRectangle;
 
 @end
 
@@ -49,33 +51,24 @@
     for (DieLabel *dieLabel in self.dieLabels) {
         dieLabel.delegate = self;
     }
-  // [self.view addSubview:self.rollingRectangle];
-    self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view.superview];
-    self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
-    self.gravityBehavior = [[UIGravityBehavior alloc] initWithItems:self.dieLabels];
-    self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
-
-    // this is where I'm trying to set the boundries so the dice don't fall off the screen. But it's not working.
-
-//    UIBezierPath *bezierRect = [[UIBezierPath alloc] init];
-//    [bezierRect ]
-//    [self.collisionBehavior addBoundaryWithIdentifier:(id<NSCopying>) forPath:bezierRect];
+    //i had to create a view manually to get the dice to be in it, then I call for them to move
+    [self createView];
+    [self dynamicMovement];
 
     self.turnScore = 0;
     self.playerScoreInt = 0;
     self.whichPlayer = YES;
 
-    [self.dynamicAnimator addBehavior:self.collisionBehavior];
-    [self.dynamicAnimator addBehavior:self.gravityBehavior];
-    [self.dynamicAnimator addBehavior:self.dynamicItemBehavior];
-
-
-
 }
 
+
+
+
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
+        [self dynamicMovement];
     for (DieLabel *label in self.dieLabels) {
         [label rollDice];
+        //this should make it shake, currently not working
         [self.selectedDice removeAllObjects];
     }
 }
@@ -242,6 +235,51 @@
         self.playerTwoScoreInt = self.playerTwoScoreInt + self.turnScore;
         self.userTwoScore.text = [NSString stringWithFormat:@"PLayer 2 Score: %i", self.playerTwoScoreInt];
     }
+}
+
+// I created a rectangle and set it as a view
+-(void)createView {
+       self.rollingRectangle = [[UIView alloc] initWithFrame:CGRectMake(37, 200, 300, 300)];
+      [self.view addSubview:self.rollingRectangle];
+    }
+//this is all the movement
+- (void)dynamicMovement {
+
+    //I set the die as a subview of the rectangle
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:0]];
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:1]];
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:2]];
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:3]];
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:4]];
+        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:5]];
+//I initialized the animator with the current view
+        self.dynamicAnimator= [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+//the settings for the behavior influence how everything behaves.
+        self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
+//how bouncy they are
+        self.dynamicItemBehavior.elasticity = 0.9;
+//how much it spins?
+        self.dynamicItemBehavior.angularResistance = 0.6;
+//how close the items interact with each other
+        self.dynamicItemBehavior.friction = 0.03;
+//how dense the items are
+        self.dynamicItemBehavior.density = 0.1;
+
+
+        self.gravityBehavior =[[UIGravityBehavior alloc] initWithItems:self.dieLabels];
+//this sets the bounds for the collisions. I did it individually because I couldn't find a way to tell it that the frame was the boundary
+        self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
+        self.collisionBehavior.collisionDelegate = self;
+        [self.collisionBehavior addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(37, 160) toPoint:CGPointMake(337, 160)];
+        [self.collisionBehavior addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(37, 500) toPoint:CGPointMake(337, 500)];
+        [self.collisionBehavior addBoundaryWithIdentifier:@"leftSide" fromPoint:CGPointMake(37, 200) toPoint:CGPointMake(37, 500)];
+        [self.collisionBehavior addBoundaryWithIdentifier:@"rightSide" fromPoint:CGPointMake(337, 200) toPoint:CGPointMake(337, 500)];
+        [self.collisionBehavior setCollisionMode:UICollisionBehaviorModeEverything];
+       self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+
+        [self.dynamicAnimator addBehavior:self.dynamicItemBehavior];
+        [self.dynamicAnimator addBehavior:self.gravityBehavior];
+        [self.dynamicAnimator addBehavior:self.collisionBehavior];
 }
 
 @end
