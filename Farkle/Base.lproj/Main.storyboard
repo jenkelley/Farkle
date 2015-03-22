@@ -49,6 +49,90 @@
                                     <action selector="onEndTurnButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3yD-ML-Sw0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-sA-jq0" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Xbc-XV-hZg" appends="YES" id="Ajj-1z-wD8"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxP-cf-UDh" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IV6-oP-gsq" appends="YES" id="wPa-Be-YhA"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABg-qe-Gyo" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dsX-pT-VVR" appends="YES" id="kPF-Tw-i9L"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-Tf-hkF" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sRJ-6S-UeH" appends="YES" id="duk-Ks-lTK"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hst-m5-4ab" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7zR-Qq-mEe" appends="YES" id="pq2-Dv-1cf"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otD-l7-se5" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="273" width="55" height="55"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fku-di-cuh" appends="YES" id="fvy-O4-oHe"/>
+                                </connections>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4q-jj-13f">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -58,117 +142,6 @@
                                     <rect key="frame" x="42" y="92" width="157" height="21"/>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e99-Uv-9Po">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-sA-jq0" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Xbc-XV-hZg" appends="YES" id="Ajj-1z-wD8"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxP-cf-UDh" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="IV6-oP-gsq" appends="YES" id="wPa-Be-YhA"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABg-qe-Gyo" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="dsX-pT-VVR" appends="YES" id="kPF-Tw-i9L"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-Tf-hkF" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="sRJ-6S-UeH" appends="YES" id="duk-Ks-lTK"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hst-m5-4ab" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="7zR-Qq-mEe" appends="YES" id="pq2-Dv-1cf"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otD-l7-se5" customClass="DieLabel">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="126" y="120" width="55" height="55"/>
-                                        </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="fku-di-cuh" appends="YES" id="fvy-O4-oHe"/>
-                                        </connections>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.82066209560000003" green="1" blue="0.77830214819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="lAQ-sA-jq0"/>
-                                        <exclude reference="mxP-cf-UDh"/>
-                                        <exclude reference="ABg-qe-Gyo"/>
-                                        <exclude reference="Eb8-Tf-hkF"/>
-                                        <exclude reference="hst-m5-4ab"/>
-                                        <exclude reference="otD-l7-se5"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="46" y="150" width="308" height="295"/>
-                                    <mask key="subviews">
-                                        <include reference="lAQ-sA-jq0"/>
-                                        <include reference="mxP-cf-UDh"/>
-                                        <include reference="ABg-qe-Gyo"/>
-                                        <include reference="Eb8-Tf-hkF"/>
-                                        <include reference="hst-m5-4ab"/>
-                                        <include reference="otD-l7-se5"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -176,8 +149,13 @@
                                 <exclude reference="ONH-D4-TVk"/>
                                 <exclude reference="wLH-Hg-DXX"/>
                                 <exclude reference="GmC-Pp-Z1m"/>
+                                <exclude reference="lAQ-sA-jq0"/>
+                                <exclude reference="mxP-cf-UDh"/>
+                                <exclude reference="ABg-qe-Gyo"/>
+                                <exclude reference="Eb8-Tf-hkF"/>
+                                <exclude reference="hst-m5-4ab"/>
+                                <exclude reference="otD-l7-se5"/>
                                 <exclude reference="h4q-jj-13f"/>
-                                <exclude reference="e99-Uv-9Po"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -185,8 +163,13 @@
                                 <include reference="ONH-D4-TVk"/>
                                 <include reference="wLH-Hg-DXX"/>
                                 <include reference="GmC-Pp-Z1m"/>
+                                <include reference="lAQ-sA-jq0"/>
+                                <include reference="mxP-cf-UDh"/>
+                                <include reference="ABg-qe-Gyo"/>
+                                <include reference="Eb8-Tf-hkF"/>
+                                <include reference="hst-m5-4ab"/>
+                                <include reference="otD-l7-se5"/>
                                 <include reference="h4q-jj-13f"/>
-                                <include reference="e99-Uv-9Po"/>
                             </mask>
                         </variation>
                     </view>
@@ -197,7 +180,6 @@
                         <outlet property="dieLabelSix" destination="ABg-qe-Gyo" id="b1X-Yw-lBN"/>
                         <outlet property="dieLabelThree" destination="lAQ-sA-jq0" id="1yQ-1g-gMn"/>
                         <outlet property="dieLabelTwo" destination="mxP-cf-UDh" id="eJZ-GA-zoe"/>
-                        <outlet property="rollingRectangle" destination="e99-Uv-9Po" id="SbJ-Tv-ky2"/>
                         <outlet property="userScore" destination="wLH-Hg-DXX" id="D3h-W1-b7K"/>
                         <outlet property="userTwoScore" destination="h4q-jj-13f" id="dkx-Ta-sM1"/>
                         <outletCollection property="dieLabels" destination="lAQ-sA-jq0" collectionClass="NSMutableArray" id="pXw-VD-62D"/>
