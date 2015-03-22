@@ -29,12 +29,12 @@
 @property UIGravityBehavior *gravityBehavior;
 @property UICollisionBehavior *collisionBehavior;
 @property (weak, nonatomic) IBOutlet UILabel *userTwoScore;
-
+//@property UIBezierPath *rectangleBounds;
 @property int playerScoreInt;
 @property int playerTwoScoreInt;
 @property int turnScore;
-
 @property BOOL whichPlayer;
+@property (strong, nonatomic) IBOutlet UIView *rollingRectangle;
 
 @end
 
@@ -49,15 +49,26 @@
     for (DieLabel *dieLabel in self.dieLabels) {
         dieLabel.delegate = self;
     }
-
-    self.dynamicAnimator = [[UIDynamicAnimator alloc] init];
+   [self.view addSubview:self.rollingRectangle];
+    self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view.superview];
     self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
     self.gravityBehavior = [[UIGravityBehavior alloc] initWithItems:self.dieLabels];
     self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
 
+    // this is where I'm trying to set the boundries so the dice don't fall off the screen. But it's not working.
+
+//    UIBezierPath *bezierRect = [[UIBezierPath alloc] init];
+//    [self.collisionBehavior addBoundaryWithIdentifier:(id<NSCopying>) forPath:bezierRect];
+
     self.turnScore = 0;
     self.playerScoreInt = 0;
     self.whichPlayer = YES;
+
+    [self.dynamicAnimator addBehavior:self.collisionBehavior];
+    [self.dynamicAnimator addBehavior:self.gravityBehavior];
+    [self.dynamicAnimator addBehavior:self.dynamicItemBehavior];
+
+
 
 }
 

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RootViewController : UIViewController
+@property (nonatomic, readwrite) CGPoint center;
+@property (nonatomic, readonly) CGRect bounds;
+@property (nonatomic, readwrite) CGAffineTransform transform;
 
 @end
