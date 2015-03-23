@@ -39,7 +39,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="sRJ-6S-UeH" appends="YES" id="duk-Ks-lTK"/>
@@ -53,7 +53,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="IV6-oP-gsq" appends="YES" id="wPa-Be-YhA"/>
@@ -67,7 +67,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Xbc-XV-hZg" appends="YES" id="Ajj-1z-wD8"/>
@@ -81,7 +81,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="7zR-Qq-mEe" appends="YES" id="pq2-Dv-1cf"/>
@@ -95,7 +95,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="fku-di-cuh" appends="YES" id="fvy-O4-oHe"/>
@@ -109,7 +109,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="149" y="123" width="55" height="55"/>
+                                            <rect key="frame" x="149" y="160" width="55" height="55"/>
                                         </variation>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="dsX-pT-VVR" appends="YES" id="kPF-Tw-i9L"/>
@@ -128,7 +128,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="26" y="172" width="352" height="368"/>
+                                    <rect key="frame" x="26" y="135" width="352" height="405"/>
                                     <mask key="subviews">
                                         <include reference="Eb8-Tf-hkF"/>
                                         <include reference="mxP-cf-UDh"/>

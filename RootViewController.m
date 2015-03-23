@@ -14,9 +14,7 @@
 @property IBOutletCollection(DieLabel) NSMutableArray *dieLabels;
 @property NSMutableArray *dice;
 @property NSMutableArray *selectedDice;
-
 @property DieLabel *tappedDieLabel;
-
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelOne;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelTwo;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelThree;
@@ -24,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelFive;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabelSix;
 @property (weak, nonatomic) IBOutlet UILabel *userScore;
-
 //below are the properties I added to make it animate, i also added a delegate
 @property UIDynamicAnimator *dynamicAnimator;
 @property UIDynamicItemBehavior *dynamicItemBehavior;
@@ -52,25 +49,23 @@
         dieLabel.delegate = self;
     }
     //i had to create a view manually to get the dice to be in it, then I call for them to move
-    [self createView];
+    [self.view addSubview:self.rollingRectangle];
     [self dynamicMovement];
 
     self.turnScore = 0;
     self.playerScoreInt = 0;
     self.whichPlayer = YES;
-
 }
 
-
-
-
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
-        [self dynamicMovement];
+
     for (DieLabel *label in self.dieLabels) {
         [label rollDice];
-        //this should make it shake, currently not working
         [self.selectedDice removeAllObjects];
+        //add movement when it's "shook"
+        [self dynamicMovement];
     }
+
 }
 
 - (IBAction)onEndTurnButtonPressed:(id)sender {
@@ -83,7 +78,7 @@
 }
 
 -(void)labelTapped:(UITapGestureRecognizer *)tap {
-    [self findLabelUsingPoint:[tap locationInView:self.view]];
+    [self findLabelUsingPoint:[tap locationInView:self.rollingRectangle]];
     self.tappedDieLabel.backgroundColor = [UIColor orangeColor];
     [self.dice addObject:self.tappedDieLabel];
     [self.selectedDice addObject:self.tappedDieLabel];
@@ -100,6 +95,8 @@
     }
 }
 
+#pragma mark - "scoring"
+
 -(void)updateScore {
 
     int ones = 0;
@@ -109,7 +106,6 @@
     int fives = 0;
     int sixes = 0;
   //  int turnScore = 0;
-
 
     for (DieLabel *die in self.selectedDice) {
         switch ([die.text intValue]) {
@@ -237,49 +233,53 @@
     }
 }
 
-// I created a rectangle and set it as a view
--(void)createView {
-       self.rollingRectangle = [[UIView alloc] initWithFrame:CGRectMake(37, 200, 300, 300)];
-      [self.view addSubview:self.rollingRectangle];
-    }
+#pragma mark - "Dynamic Movement"
 //this is all the movement
 - (void)dynamicMovement {
 
-    //I set the die as a subview of the rectangle
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:0]];
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:1]];
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:2]];
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:3]];
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:4]];
-        [self.rollingRectangle addSubview:[self.dieLabels objectAtIndex:5]];
-//I initialized the animator with the current view
-        self.dynamicAnimator= [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    //I set the die as a subview of the rectangle and made sure they started out in the middle of the view.
+
+    for (DieLabel *die in self.dieLabels) {
+        [self.rollingRectangle addSubview:die];
+    //before initializing the item behavior, I had to give it bounds, and center. Bounds is the size
+        die.center = CGPointMake(120, 100);
+        die.bounds = CGRectMake(120, 100, 55, 55);
+    }
+
+//I initialized the animator with the rectangle view
+        self.dynamicAnimator= [[UIDynamicAnimator alloc] initWithReferenceView:self.rollingRectangle];
 //the settings for the behavior influence how everything behaves.
         self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
-//how bouncy they are
-        self.dynamicItemBehavior.elasticity = 0.9;
-//how much it spins?
-        self.dynamicItemBehavior.angularResistance = 0.6;
-//how close the items interact with each other
-        self.dynamicItemBehavior.friction = 0.03;
-//how dense the items are
-        self.dynamicItemBehavior.density = 0.1;
-
+        self.dynamicItemBehavior.elasticity = 0.9; //bouncy
+        self.dynamicItemBehavior.angularResistance = 0.6; //spins?
+        self.dynamicItemBehavior.friction = 0.01; //interaction between squares?
+        self.dynamicItemBehavior.density = 0.3; //dense
 
         self.gravityBehavior =[[UIGravityBehavior alloc] initWithItems:self.dieLabels];
 //this sets the bounds for the collisions. I did it individually because I couldn't find a way to tell it that the frame was the boundary
-        self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
-        self.collisionBehavior.collisionDelegate = self;
-        [self.collisionBehavior addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(37, 160) toPoint:CGPointMake(337, 160)];
-        [self.collisionBehavior addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(37, 500) toPoint:CGPointMake(337, 500)];
-        [self.collisionBehavior addBoundaryWithIdentifier:@"leftSide" fromPoint:CGPointMake(37, 200) toPoint:CGPointMake(37, 500)];
-        [self.collisionBehavior addBoundaryWithIdentifier:@"rightSide" fromPoint:CGPointMake(337, 200) toPoint:CGPointMake(337, 500)];
-        [self.collisionBehavior setCollisionMode:UICollisionBehaviorModeEverything];
-       self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
 
+
+    self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
+    self.collisionBehavior.collisionDelegate = self;
+
+
+    //this tells it that the boundries are the rectangle it's in
+    UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
+    bezierPath = [UIBezierPath bezierPathWithRect:self.rollingRectangle.frame];
+    [self.collisionBehavior addBoundaryWithIdentifier:@"Rectangle Used for Rolling" forPath:bezierPath];
+    self.collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+//I'm adding all the behaviors I want on the animator
         [self.dynamicAnimator addBehavior:self.dynamicItemBehavior];
         [self.dynamicAnimator addBehavior:self.gravityBehavior];
         [self.dynamicAnimator addBehavior:self.collisionBehavior];
+}
+//this determines what happens when the die collide. I have them changing value and making gravity weird
+-(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier{
+    for (DieLabel *label in self.dieLabels) {
+        [label rollDice];
+        self.gravityBehavior.angle = .5;
+        self.gravityBehavior.gravityDirection = CGVectorMake(1, 0);
+    }
 }
 
 @end
