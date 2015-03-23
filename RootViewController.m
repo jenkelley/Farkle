@@ -43,15 +43,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.dice = [NSMutableArray new];
-    self.selectedDice = [NSMutableArray new];
+//new just add ones 'placeholder' for memory.
+    self.selectedDice = [NSMutableArray arrayWithCapacity:6];
 
     for (DieLabel *dieLabel in self.dieLabels) {
         dieLabel.delegate = self;
     }
-    //i had to create a view manually to get the dice to be in it, then I call for them to move
     [self.view addSubview:self.rollingRectangle];
+    [self.rollingRectangle addSubview:self.pickedView];
     [self dynamicMovement];
 
     self.turnScore = 0;
@@ -60,28 +59,42 @@
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)rollButton {
-
-    for (DieLabel *label in self.dieLabels) {
-        [label rollDice];
-        [self.selectedDice removeAllObjects];
-        //add movement when it's "shook"
-        [self dynamicMovement];
-    }
+    [self dynamicMovement];
+    [self.selectedDice removeAllObjects];
 }
--(void)labelTapped:(UITapGestureRecognizer *)drag{
-    [self findLabelUsingPoint:[drag locationInView:self.rollingRectangle]];
+-(void)labelTapped:(UITapGestureRecognizer *)tap{
+    [self findLabelUsingPoint:[tap locationInView:self.rollingRectangle]];
     self.tappedDieLabel.backgroundColor = [UIColor orangeColor];
     [self.dice addObject:self.tappedDieLabel];
     [self.selectedDice addObject:self.tappedDieLabel];
     [self.dieLabels removeObject:self.tappedDieLabel];
     [self updateScore];
-    //    NSLog(@"%lu", (unsigned long)self.dice.count);
 }
 
 -(void)findLabelUsingPoint:(CGPoint)tap {
     for (DieLabel *dieLabelTapped in self.dieLabels){
         if (CGRectContainsPoint(dieLabelTapped.frame, tap)) {
             self.tappedDieLabel = dieLabelTapped;
+        }
+    }
+}
+//pan Gesture. Doesn't currently work.
+-(void)panHandler: (UIPanGestureRecognizer *)drag{
+    CGPoint point = [drag locationInView:self.view];
+    self.tappedDieLabel.center =  point;
+
+    //if the picked die that is being panned starts in the rolling rectangle and it it ends in the picked rectangle, then update the location to where it's dragged
+    if (drag.state == UIGestureRecognizerStateBegan) {
+        [self findLabelUsingPoint:[drag locationInView:self.rollingRectangle]];
+        if (CGRectContainsPoint(self.pickedView.frame, point)) {
+            [UIView animateWithDuration:0.5 animations:^{
+                self.tappedDieLabel.center = self.pickedView.center;
+            }];
+        }
+        //if it's not in the picked frame
+    } else if (drag.state ==UIGestureRecognizerStateEnded){
+        if (CGRectContainsPoint(self.rollingRectangle.frame, point)) {
+            self.tappedDieLabel.center = self.tappedDieLabel.center;
         }
     }
 }
@@ -128,6 +141,7 @@
     int sixes = 0;
   //  int turnScore = 0;
 
+    //when pan gesture works, this needs to say the selected die is in the picked view
     for (DieLabel *die in self.selectedDice) {
         switch ([die.text intValue]) {
             case 1:
@@ -177,7 +191,8 @@
                 } else if (fives == 4) {
                     self.turnScore += 1000;
                 } else if (fives == 3){
-                    self.turnScore += 500;
+                    //this value needs to be 500-150 because three ones were tapped and this is just adding the difference
+                    self.turnScore += 350;
                 } else if (fives == 2) {
                     self.turnScore += 100;
                 } else if (fives == 1) {
@@ -228,8 +243,9 @@
                     self.turnScore += 2000;
                 } else if (ones == 4) {
                     self.turnScore += 1000;
-                } else if (ones == 3){
-                    self.turnScore += 300;
+                //don't need the below because if three are picked it'll automatically go
+//                } else if (ones == 3){
+//                    self.turnScore += 300;
                 } else if (ones == 2) {
                     self.turnScore += 200;
                 } else if (ones == 1) {
@@ -246,38 +262,49 @@
     NSLog(@"Sixes equal %i", sixes);
 
     if (self.whichPlayer == YES) {
+       // self.playerScoreInt = self.playerScoreInt + self.turnScore;
+        self.userScore.text = [NSString stringWithFormat:@"Player 1 Score: %i", self.turnScore];
+    } else if (self.whichPlayer == NO){
+       // self.playerTwoScoreInt = self.playerTwoScoreInt + self.turnScore;
+        self.userTwoScore.text = [NSString stringWithFormat:@"PLayer 2 Score: %i", self.turnScore];
+    }
+}
+
+-(void)displayScoreAfterFirstTurn{
+
+    //this doesn't work because it's not adding the previous score to the current score; need to make a new variable that represents what the score already is
+    if (self.whichPlayer == YES) {
         self.playerScoreInt = self.playerScoreInt + self.turnScore;
         self.userScore.text = [NSString stringWithFormat:@"Player 1 Score: %i", self.playerScoreInt];
     } else if (self.whichPlayer == NO){
         self.playerTwoScoreInt = self.playerTwoScoreInt + self.turnScore;
         self.userTwoScore.text = [NSString stringWithFormat:@"PLayer 2 Score: %i", self.playerTwoScoreInt];
     }
+
 }
 
 #pragma mark - "Dynamic Movement"
 //this is all the movement
 - (void)dynamicMovement {
-
-    //I set the die as a subview of the rectangle and made sure they started out in the middle of the view.
-
     for (DieLabel *die in self.dieLabels) {
-        [self.rollingRectangle addSubview:die];
+       [self.rollingRectangle addSubview:die];
     //before initializing the item behavior, I had to give it bounds, and center. Bounds is the size
         die.center = CGPointMake(120, 100);
         die.bounds = CGRectMake(120, 100, 40, 40);
     }
 
-//I initialized the animator with the rectangle view
-        self.dynamicAnimator= [[UIDynamicAnimator alloc] initWithReferenceView:self.rollingRectangle];
-//the settings for the behavior influence how everything behaves.
-        self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
-        self.dynamicItemBehavior.elasticity = 0.9; //bouncy
-        self.dynamicItemBehavior.angularResistance = 0.6; //spins?
-        self.dynamicItemBehavior.friction = 0.01; //interaction between squares?
-        self.dynamicItemBehavior.density = 0.3; //dense
+    //I initialized the animator with the rectangle view
+    //remove behaviors before you add new ones
+    self.dynamicAnimator= [[UIDynamicAnimator alloc] initWithReferenceView:self.rollingRectangle];
+    //the settings for the behavior influence how everything behaves.
+    self.dynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.dieLabels];
+    self.dynamicItemBehavior.elasticity = 0.9; //bouncy
+    self.dynamicItemBehavior.angularResistance = 0.6; //spins?
+    self.dynamicItemBehavior.friction = 0.0; //interaction between squares?
+    self.dynamicItemBehavior.density = 0.3; //dense
 
-        self.gravityBehavior =[[UIGravityBehavior alloc] initWithItems:self.dieLabels];
-//this sets the bounds for the collisions. I did it individually because I couldn't find a way to tell it that the frame was the boundary
+    self.gravityBehavior =[[UIGravityBehavior alloc] initWithItems:self.dieLabels];
+    //this sets the bounds for the collisions. I did it individually because I couldn't find a way to tell it that the frame was the boundary
 
 
     self.collisionBehavior = [[UICollisionBehavior alloc] initWithItems:self.dieLabels];
@@ -295,12 +322,18 @@
         [self.dynamicAnimator addBehavior:self.collisionBehavior];
 }
 //this determines what happens when the die collide. I have them changing value and making gravity weird
--(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier{
-    for (DieLabel *label in self.dieLabels) {
-        [label rollDice];
-        self.gravityBehavior.angle = .3;
-        self.gravityBehavior.gravityDirection = CGVectorMake(1, 0);
+//-(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier{
+//    for (DieLabel *label in self.dieLabels) {
+//        [label rollDice];
+//        self.gravityBehavior.angle = .3;
+//        self.gravityBehavior.gravityDirection = CGVectorMake(1, 0);
+//    }
+//}
+-(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+{
+    if ([item1 isKindOfClass:[DieLabel class]] && [item2 isKindOfClass:[DieLabel class]] ) {
+        [((DieLabel *)item1) rollDice];
+        [((DieLabel *)item2) rollDice];
     }
 }
-
 @end

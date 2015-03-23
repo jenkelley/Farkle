@@ -28,9 +28,9 @@
     }
 }
 
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
+//- (BOOL)canBecomeFirstResponder
+//{
+//    return YES;
+//}
 
 @end

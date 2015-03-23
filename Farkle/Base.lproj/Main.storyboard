@@ -178,6 +178,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ONH-D4-TVk"/>
@@ -198,6 +199,9 @@
                                 <include reference="LmX-Xs-Sam"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="opg-Vg-Ulu" appends="YES" id="qxA-hq-zyT"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dieLabelFive" destination="otD-l7-se5" id="4gn-4z-q2F"/>
@@ -249,12 +253,7 @@
                         <action selector="labelTapped:" destination="ABg-qe-Gyo" id="rac-wz-PwU"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="CAs-xe-CzN" userLabel="Pan Gesture Recognizer(1)"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Rm3-Pc-jks" userLabel="Pan Gesture Recognizer(2)"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="sPA-5a-Gff" userLabel="Pan Gesture Recognizer(3)"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Bu0-ql-e8S" userLabel="Pan Gesture Recognizer(4)"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="7a0-XP-hyk" userLabel="Pan Gesture Recognizer(5)"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="TxD-3W-8UX" userLabel="Pan Gesture Recognizer(6)"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="opg-Vg-Ulu"/>
             </objects>
             <point key="canvasLocation" x="541.5" y="280"/>
         </scene>
