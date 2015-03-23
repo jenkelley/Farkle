@@ -13,6 +13,7 @@
 		14E840641ABB4EFA00620352 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E840631ABB4EFA00620352 /* Images.xcassets */; };
 		14E840671ABB4EFA00620352 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E840651ABB4EFA00620352 /* LaunchScreen.xib */; };
 		14E840731ABB4EFA00620352 /* FarkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E840721ABB4EFA00620352 /* FarkleTests.m */; };
+		14F890E11ABFABFF0090CB30 /* ShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F890E01ABFABFF0090CB30 /* ShakeView.m */; };
 		D63221411ABB508500623560 /* DieLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D63221401ABB508500623560 /* DieLabel.m */; };
 		D63221441ABB50A900623560 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63221431ABB50A900623560 /* RootViewController.m */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,8 @@
 		14E8406C1ABB4EFA00620352 /* FarkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarkleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E840711ABB4EFA00620352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E840721ABB4EFA00620352 /* FarkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarkleTests.m; sourceTree = "<group>"; };
+		14F890DF1ABFABFF0090CB30 /* ShakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeView.h; sourceTree = "<group>"; };
+		14F890E01ABFABFF0090CB30 /* ShakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeView.m; sourceTree = "<group>"; };
 		D632213F1ABB508500623560 /* DieLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DieLabel.h; path = ../DieLabel.h; sourceTree = "<group>"; };
 		D63221401ABB508500623560 /* DieLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DieLabel.m; path = ../DieLabel.m; sourceTree = "<group>"; };
 		D63221421ABB50A900623560 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				14E840601ABB4EFA00620352 /* Main.storyboard */,
 				D63221421ABB50A900623560 /* RootViewController.h */,
 				D63221431ABB50A900623560 /* RootViewController.m */,
+				14F890DF1ABFABFF0090CB30 /* ShakeView.h */,
+				14F890E01ABFABFF0090CB30 /* ShakeView.m */,
 				D632213F1ABB508500623560 /* DieLabel.h */,
 				D63221401ABB508500623560 /* DieLabel.m */,
 				14E840631ABB4EFA00620352 /* Images.xcassets */,
@@ -227,6 +232,7 @@
 				14E8405C1ABB4EFA00620352 /* AppDelegate.m in Sources */,
 				14E840591ABB4EFA00620352 /* main.m in Sources */,
 				D63221441ABB50A900623560 /* RootViewController.m in Sources */,
+				14F890E11ABFABFF0090CB30 /* ShakeView.m in Sources */,
 				D63221411ABB508500623560 /* DieLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

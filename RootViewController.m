@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "DieLabel.h"
+#import "ShakeView.h"
 
 @interface RootViewController () <DieLabelDelegate, UIDynamicItem, UICollisionBehaviorDelegate>
 
@@ -34,6 +35,7 @@
 @property int turnScore;
 @property BOOL whichPlayer;
 @property (strong, nonatomic) IBOutlet UIView *rollingRectangle;
+@property (strong, nonatomic) IBOutlet UIView *pickedView;
 
 @end
 
@@ -65,26 +67,15 @@
         //add movement when it's "shook"
         [self dynamicMovement];
     }
-
 }
-
-- (IBAction)onEndTurnButtonPressed:(id)sender {
-    for (int i = 0; i <= self.selectedDice.count; i++) {
-        [self.dieLabels addObject:self.selectedDice[i]];
-    }
-    [self.selectedDice removeAllObjects];
-    self.turnScore = 0;
-    self.whichPlayer = !self.whichPlayer;
-}
-
--(void)labelTapped:(UITapGestureRecognizer *)tap {
-    [self findLabelUsingPoint:[tap locationInView:self.rollingRectangle]];
+-(void)labelTapped:(UITapGestureRecognizer *)drag{
+    [self findLabelUsingPoint:[drag locationInView:self.rollingRectangle]];
     self.tappedDieLabel.backgroundColor = [UIColor orangeColor];
     [self.dice addObject:self.tappedDieLabel];
     [self.selectedDice addObject:self.tappedDieLabel];
     [self.dieLabels removeObject:self.tappedDieLabel];
     [self updateScore];
-//    NSLog(@"%lu", (unsigned long)self.dice.count);
+    //    NSLog(@"%lu", (unsigned long)self.dice.count);
 }
 
 -(void)findLabelUsingPoint:(CGPoint)tap {
@@ -93,6 +84,36 @@
             self.tappedDieLabel = dieLabelTapped;
         }
     }
+}
+
+#pragma mark - "Shake Action"
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"Shake happend …");
+    [self dynamicMovement];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.view becomeFirstResponder];
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.view resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
+#pragma mark - "New Turn"
+
+- (IBAction)onEndTurnButtonPressed:(id)sender {
+    for (int i = 0; i <= self.selectedDice.count; i++) {
+        [self.dieLabels addObject:self.selectedDice[i]];
+    }
+    [self.selectedDice removeAllObjects];
+    self.turnScore = 0;
+    self.whichPlayer = !self.whichPlayer;
 }
 
 #pragma mark - "scoring"
@@ -243,7 +264,7 @@
         [self.rollingRectangle addSubview:die];
     //before initializing the item behavior, I had to give it bounds, and center. Bounds is the size
         die.center = CGPointMake(120, 100);
-        die.bounds = CGRectMake(120, 100, 55, 55);
+        die.bounds = CGRectMake(120, 100, 40, 40);
     }
 
 //I initialized the animator with the rectangle view
@@ -277,7 +298,7 @@
 -(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier{
     for (DieLabel *label in self.dieLabels) {
         [label rollDice];
-        self.gravityBehavior.angle = .5;
+        self.gravityBehavior.angle = .3;
         self.gravityBehavior.gravityDirection = CGVectorMake(1, 0);
     }
 }
